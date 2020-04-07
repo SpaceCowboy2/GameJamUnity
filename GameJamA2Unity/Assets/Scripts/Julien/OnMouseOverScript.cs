@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testgit : MonoBehaviour
+public class OnMouseOverScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class testgit : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseOver()
+    {
+        Debug.Log("touché!");
     }
 }
