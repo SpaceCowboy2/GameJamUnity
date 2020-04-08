@@ -25,7 +25,7 @@ public class Gameplay : MonoBehaviour
         {
             animShake.Play("ShakeFreeFall");
             numberOfShakes--;
-            Debug.Log(numberOfShakes);
+            //Debug.Log(numberOfShakes);
             yield return new WaitForSeconds(0.16f);
         }
         else
