@@ -15,6 +15,26 @@ public class Cam : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+    }
+    IEnumerator Zoom()
+    {
+        var Came = gameObject.GetComponent<Camera>();
+        if (Input.GetButtonDown("Fire2"))
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Came.fieldOfView-=2;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Came.fieldOfView+=2;
+                yield return new WaitForEndOfFrame();
+            }
+        }
 
     }
 
@@ -22,6 +42,7 @@ public class Cam : MonoBehaviour
     void Update()
     {
 
+        StartCoroutine("Zoom");
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
         Pointer.transform.eulerAngles = new Vector3(pitch, yaw);

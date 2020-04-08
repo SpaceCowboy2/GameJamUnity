@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: ec508eea6fd63b342a478a18af64c20b,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -665,16 +665,16 @@ MonoBehaviour:
   m_CameraType: 0
   m_CameraOutput: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
+  m_StopNaN: 1
+  m_Dithering: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -958,6 +958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
+    - target: {fileID: 4644533904641419979, guid: e30630c1d9ae13e42872d41960d200f6,
+        type: 3}
+      propertyPath: m_Depth
+      value: 1.65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30630c1d9ae13e42872d41960d200f6, type: 3}
 --- !u!1001 &8274089010578787887
@@ -967,10 +972,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8274089009774592185, guid: 215253eaee2a8d6408c1bc89ddad511e,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 9.5815935
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274089009774592185, guid: 215253eaee2a8d6408c1bc89ddad511e,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -1.7460685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274089009774592185, guid: 215253eaee2a8d6408c1bc89ddad511e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.375269
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274089009774592185, guid: 215253eaee2a8d6408c1bc89ddad511e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.9261942
+      objectReference: {fileID: 0}
     - target: {fileID: 8274089009774592186, guid: 215253eaee2a8d6408c1bc89ddad511e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 8274089009774592186, guid: 215253eaee2a8d6408c1bc89ddad511e,
         type: 3}
