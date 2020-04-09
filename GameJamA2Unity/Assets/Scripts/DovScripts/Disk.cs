@@ -168,7 +168,7 @@ public class Disk : MonoBehaviour
         angle += speed * Time.deltaTime;
         angle %= 360;
         Vector3 newEulerAngles = transform.localEulerAngles;
-        newEulerAngles.z = angle;
+        newEulerAngles.y = angle;
         transform.localEulerAngles = newEulerAngles;
     }
 
