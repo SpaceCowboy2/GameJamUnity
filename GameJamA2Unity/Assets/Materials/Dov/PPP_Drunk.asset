@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   amplitude:
     overrideState: 1
-    value: 0.024
+    value: 0
   frequency:
     overrideState: 1
     value: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
     value: {x: 2, y: 2, z: 0, w: 0}
   size:
     overrideState: 1
-    value: {x: 2, y: 2, z: 0, w: 0}
+    value: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
