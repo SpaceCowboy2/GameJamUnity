@@ -4,16 +4,41 @@ using UnityEngine;
 
 public class Disk : MonoBehaviour
 {
+    //parametre de roue
+    [Header("paramètre de roue")]
     public float speed = 0.0f;
-    public string[] symbols ;
     public float angle = 0.0f;
+
+    [Header("Saisie des symboles")]
+    public string[] symbols;
+
+    //Etat de saisie
+    [Header("Saisie des UI des symboles")]
+    public Symbols[] UISymbols;
     private string symb;
-    private bool isFinished = false;
     private int count = 0;
+
+    //Etat de résultat
+    [Header("Attente pendant résultat")]
+    public float resultDuration = 3.0f;
+    private float resultTimer = 0.0f;
+
+    [Header("Noms des démons")]
+    public string[] validSymbolsStage1;
+    public string[] validSymbolsStage2;
+    public string[] validSymbolsStage3;
+    public string[] validSymbolsStage4;
+    public string[] validSymbolsStage5;
+    public string[] validSymbolsStage6;
+    public string[] validSymbolsStage7;
+
+    [Header("CheatMode")]
+    public bool cheatMode = false;
+
 
     enum Stages
     {
-        Stage1,
+        Stage1 = 0,
         Stage2,
         Stage3,
         Stage4,
@@ -22,174 +47,157 @@ public class Disk : MonoBehaviour
         Stage7,
     };
 
-    Stages stage = Stages.Stage1;
-
-    void Update()
+    enum Etat
     {
-        //Raycast cam pour visé le click sur l'objet
-        //speed = Random.Range(0.4f, 1.0f);
-        //transform.Rotate(Vector3.up, speed);
-        angle += speed * Time.deltaTime;
-        angle = angle % 360;
-        Vector3 newEulerAngles = transform.localEulerAngles;
-        newEulerAngles.y = angle;
-        transform.localEulerAngles = newEulerAngles;
-        int value = Mathf.FloorToInt(angle / 360 * 3);
+        Saisie,
+        Resultat,
+    };
 
+    Stages stage = Stages.Stage1;
+    Etat etat = Etat.Saisie;
+
+    void UpdateEtatSaisie()
+    {
+        int value = Mathf.FloorToInt(angle / 360 * 13);
 
         if (Input.GetButtonDown("Fire1"))
         {
-            
-            //Debug.Log(symbols[value]);
+            symb = symbols[value];
+            UISymbols[count].symbol = symb;
+            bool isSymbolValid = CheckSymbolValid(symb, stage, count);
+            UISymbols[count].isValid = isSymbolValid;
             count++;
-            symb += symbols[value];
+            if (!isSymbolValid)
+            {
+                resultTimer = resultDuration;
+                etat = Etat.Resultat;
+            }
+            if (CheckFinish(count))
+            {
+                resultTimer = resultDuration;
+                etat = Etat.Resultat;
+            }
+        }
+    }
 
+    bool CheckSymbolValid(string symbol, Stages stage, int pos)
+    {
+        if (cheatMode)
+        {
+            return true;
         }
 
         switch (stage)
         {
             case Stages.Stage1:
-                if (count == 3)
-                {
-                    if (symb == "DA" + "MON" + "IEL")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage1[pos] == symbol;
 
             case Stages.Stage2:
-                if (count == 3)
-                {
-                    if (symb == "AX" + "DA" + "IEL")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage2[pos] == symbol;
 
             case Stages.Stage3:
-                if (count == 4)
-                {
-                    if (symb == "ROG" + "GU" + "MON" + "IRA")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage3[pos] == symbol;
 
             case Stages.Stage4:
-                if (count == 4)
-                {
-                    if (symb == "DA" + "LUX" + "ER" + "IA")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage4[pos] == symbol;
 
             case Stages.Stage5:
-                if (count == 4)
-                {
-                    if (symb == "IN" + "AVA" + "MON" + "IEL")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage5[pos] == symbol;
 
             case Stages.Stage6:
-                if (count == 5)
-                {
-                    if (symb == "GU" + "LA" + "ROG" + "AX" + "AX"+ "IEL")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage6[pos] == symbol;
 
             case Stages.Stage7:
-                if (count == 4)
-                {
-                    if (symb == "AVA" + "DA" + "MON" + "IA")
-                    {
-                        //Debug.Log("Tu as réussi ce stage !");
-                        isFinished = true;
-                        symb = "";
-                        count = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Tu as faux");
-                        symb = "";
-                        count = 0;
-                    }
-                }
-                break;
+                return validSymbolsStage7[pos] == symbol;
+
+            default:
+                return false;
         }
     }
 
-    private void IsFinished()
+    bool CheckFinish(int pos)
     {
-        if (isFinished == true)
+        switch (stage)
         {
-            //Debug.Log("Tu as fini ce niveau !");
+            case Stages.Stage1:
+                return pos == validSymbolsStage1.Length;
+
+            case Stages.Stage2:
+                return pos == validSymbolsStage2.Length;
+
+            case Stages.Stage3:
+                return pos == validSymbolsStage3.Length;
+
+            case Stages.Stage4:
+                return pos == validSymbolsStage4.Length;
+
+            case Stages.Stage5:
+                return pos == validSymbolsStage5.Length;
+
+            case Stages.Stage6:
+                return pos == validSymbolsStage6.Length;
+
+            case Stages.Stage7:
+                return pos == validSymbolsStage7.Length;
+
+            default:
+                return false;
+        }
+    }
+
+    void UpdateEtatResultat()
+    {
+        resultTimer -= Time.deltaTime;
+        if (resultTimer <= 0)
+        {
+            for (int i = 0; i < UISymbols.Length; i++)
+            {
+                UISymbols[i].symbol = "";
+            }
+            if (CheckFinish(count))
+            {
+                NextStage();
+            }
+            count = 0;
+            etat = Etat.Saisie;
+        }
+    }
+
+    void UpdateRoue()
+    {
+        angle += speed * Time.deltaTime;
+        angle %= 360;
+        Vector3 newEulerAngles = transform.localEulerAngles;
+        newEulerAngles.y = angle;
+        transform.localEulerAngles = newEulerAngles;
+    }
+
+    void Update()
+    {
+        UpdateRoue();
+
+        if (etat == Etat.Saisie)
+        {
+            UpdateEtatSaisie();
+        }
+        else
+        {
+            UpdateEtatResultat();
+        }
+        //Raycast cam pour visé le click sur l'objet
+        
+    }
+
+
+    private void NextStage()
+    {
+        if(stage != Stages.Stage7)
+        {
             stage++;
         }
+        else
+        {
+            Debug.Log("Au dela du stage 7");
+        }
     }
-
 }

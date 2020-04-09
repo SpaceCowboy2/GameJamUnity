@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class Gameplay : MonoBehaviour
 {
     public int numberOfShakes = 5;
+<<<<<<< HEAD
     //public GameObject Doors;
     private Animator animShake;
 
+=======
+    private Animator animShake;
+>>>>>>> 7a5185475bc7923ceba58d17897439a33580720a
     private bool canShake = false;
+    public bool Doors;
+    public Animator DoorAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +32,7 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DoorAnimator.SetBool("CanCloseDoors",Doors);
         if(canShake)
         StartCoroutine(Shaking());
 
@@ -50,6 +58,7 @@ public class Gameplay : MonoBehaviour
         yield return new WaitForSeconds(20);
         canShake = true; 
     }
+<<<<<<< HEAD
 
     IEnumerator WaitForOpeningDoors(float time)
     {
@@ -75,4 +84,6 @@ public class Gameplay : MonoBehaviour
     {
         
     }
+=======
+>>>>>>> 7a5185475bc7923ceba58d17897439a33580720a
 }
