@@ -31,7 +31,7 @@ public class LightsOut : MonoBehaviour
         //Debug.Log(listLength);
         lights[listLength - 1].gameObject.SetActive(false);
         listLength--;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(25);
         _switch--;
         
         
