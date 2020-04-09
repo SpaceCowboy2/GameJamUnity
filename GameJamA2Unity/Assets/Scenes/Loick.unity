@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &911587997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -389,12 +389,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911587996}
   m_CullTransparentMesh: 0
---- !u!1 &963507819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8274089009774592188, guid: 215253eaee2a8d6408c1bc89ddad511e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8274089010578787887}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033262042
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1533823206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -905,6 +899,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4644533904072419483}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1931106756
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931106754}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!114 &1931106759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,9 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6025dab9553f242823798e63a6a743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hallucination_F: 0
-  Hallucination_Bar: {fileID: 911587998}
-  PP: {fileID: 963507819}
+  demence: 0
 --- !u!114 &1931106764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,7 +1455,9 @@ PrefabInstance:
       propertyPath: numberOfShakes
       value: 667
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1231845282007960623, guid: e30630c1d9ae13e42872d41960d200f6, type: 3}
+    - {fileID: 4644533904641419979, guid: e30630c1d9ae13e42872d41960d200f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e30630c1d9ae13e42872d41960d200f6, type: 3}
 --- !u!1001 &8274089010578787887
 PrefabInstance:

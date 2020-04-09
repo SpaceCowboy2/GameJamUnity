@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class Gameplay : MonoBehaviour
 {
     public int numberOfShakes = 5;
-    public GameObject Doors;
+    //public GameObject Doors;
     private Animator animShake;
-    public Animation animDoorOpen;
-    public Animation animDoorClose;
+
     private bool canShake = false;
 
     // Start is called before the first frame update
@@ -68,12 +67,12 @@ public class Gameplay : MonoBehaviour
 
     void OpenDoor()
     {
-        animDoorOpen.Play();
+      
        
     }
 
     void CloseDoor()
     {
-        animDoorClose.Play();
+        
     }
 }

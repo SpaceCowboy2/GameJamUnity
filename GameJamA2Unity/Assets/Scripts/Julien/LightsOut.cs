@@ -8,13 +8,10 @@ public class LightsOut : MonoBehaviour
     private int listLength = 5;
     private int _switch = 5;
 
-  
-
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,8 +30,6 @@ public class LightsOut : MonoBehaviour
         listLength--;
         yield return new WaitForSeconds(2);
         _switch--;
-        
-        
         
     }
 }
