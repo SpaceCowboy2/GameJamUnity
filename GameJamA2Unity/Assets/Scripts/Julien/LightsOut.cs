@@ -28,7 +28,7 @@ public class LightsOut : MonoBehaviour
 
     IEnumerator TurnOffLights()
     {
-        Debug.Log(listLength);
+        //Debug.Log(listLength);
         lights[listLength - 1].gameObject.SetActive(false);
         listLength--;
         yield return new WaitForSeconds(2);
