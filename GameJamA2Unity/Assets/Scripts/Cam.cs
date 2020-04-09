@@ -15,6 +15,7 @@ public class Cam : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
     }
     IEnumerator Zoom()
     {
@@ -41,23 +42,33 @@ public class Cam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        StartCoroutine("Zoom");
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
-        Pointer.transform.eulerAngles = new Vector3(pitch, yaw);
-        Player.transform.eulerAngles = new Vector3(0, yaw);
-
-        if (pitch >= 90)
+        if (Input.GetKey(KeyCode.Escape))
         {
-            Pointer.transform.eulerAngles = new Vector3(90, yaw, 0.0f);
-            Player.transform.eulerAngles = new Vector3(0, yaw);
+            Cursor.lockState = CursorLockMode.None;
         }
-        else if (pitch <= -90)
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
-            Pointer.transform.eulerAngles = new Vector3(-90, yaw, 0.0f);
+            StartCoroutine("Zoom");
+            yaw += speedH * Input.GetAxis("Mouse X");
+            pitch -= speedV * Input.GetAxis("Mouse Y");
+            Pointer.transform.eulerAngles = new Vector3(pitch, yaw);
             Player.transform.eulerAngles = new Vector3(0, yaw);
-        }
 
+            if (pitch >= 90)
+            {
+                Pointer.transform.eulerAngles = new Vector3(90, yaw, 0.0f);
+                Player.transform.eulerAngles = new Vector3(0, yaw);
+            }
+            else if (pitch <= -90)
+            {
+                Pointer.transform.eulerAngles = new Vector3(-90, yaw, 0.0f);
+                Player.transform.eulerAngles = new Vector3(0, yaw);
+            }
+        }
+        if (Input.GetButton("Fire1")&& Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
+  
 }
