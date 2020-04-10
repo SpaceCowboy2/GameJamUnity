@@ -21,6 +21,7 @@ public class Gameplay : MonoBehaviour
     private bool canShake = false;
     public bool Doors;
     public bool calledOnce = true;
+    public Image DemenceBar;
     public Animator DoorAnimator;
     private float demence = 0.0f;
     private int etage = -8;
@@ -97,7 +98,7 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DemenceBar.fillAmount = demence / 100;
         if(demence > 0 && demence < 10) // 0
         {
             
