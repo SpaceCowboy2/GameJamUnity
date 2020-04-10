@@ -17,14 +17,14 @@ public class Palier2 : MonoBehaviour
     public float timeBetweenTwoSounds = 10.0f;
 
     //Fonctionne pas
-   // public PostProcessProfile PPdrunk;
-   // private PPP_Drunk drunk;
+    public PostProcessProfile PPdrunk;
+    private PPP_Drunk drunk;
 
     void Start()
     {
         //Fonctionne pas
-       // PPdrunk.TryGetSettings(out drunk);
-        //drunk.enabled.Override(true);
+        PPdrunk.TryGetSettings(out drunk);
+        drunk.enabled.Override(true);
         //drunk.amplitude.value = 0.3f;
 
 
