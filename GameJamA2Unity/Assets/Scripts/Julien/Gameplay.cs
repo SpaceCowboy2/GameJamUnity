@@ -157,7 +157,6 @@ public class Gameplay : MonoBehaviour
             if (listLength > 0 && listLength == _switch && !reset)
             {
                 
-
                 switch (etage)
                 {
                     case -7:
@@ -268,13 +267,6 @@ public class Gameplay : MonoBehaviour
         lights[4].gameObject.SetActive(true);
         yield return new WaitForSeconds(0.1f);
             
-
-        
-        
-
-       
-
-
     }
 
     private void Defeat()
@@ -327,13 +319,7 @@ public class Gameplay : MonoBehaviour
         canCountdown = true;
 
 
-
-
         //yield return new WaitForSeconds(12.0f);
-
-
-
-
 
     }
 
@@ -365,7 +351,6 @@ public class Gameplay : MonoBehaviour
 
     IEnumerator Demons(float time)
     {
-            
             demon.volume = 0.7f;
             demon.Play();
         yield return new WaitForSeconds(time + 1.5f);
