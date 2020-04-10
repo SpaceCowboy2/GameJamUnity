@@ -10,7 +10,7 @@ public class Gameplay : MonoBehaviour
     private Animator animShake;
     private bool canShake = false;
     public bool Doors;
-   // public Animator DoorAnimator;
+    public Animator DoorAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //  DoorAnimator.SetBool("CanCloseDoors",Doors);
+        DoorAnimator.SetBool("CanCloseDoors",Doors);
         if(canShake)
         StartCoroutine(Shaking());
 
