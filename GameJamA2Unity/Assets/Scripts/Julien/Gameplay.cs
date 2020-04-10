@@ -24,7 +24,7 @@ public class Gameplay : MonoBehaviour
     public Image DemenceBar;
     public Animator DoorAnimator;
     private float demence = 0.0f;
-    private int etage = -8;
+    public int etage = -8;
 
     private bool isOnLevel = false;
     private bool isFailing = false;

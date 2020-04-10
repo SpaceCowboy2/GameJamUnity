@@ -11,6 +11,7 @@ public class Disk : MonoBehaviour
     public float angleoffset = 0.0f;
     public Camera cam;
     public float dist;
+    public Gameplay gameplay;
 
     [Header("Saisie des symboles")]
     public string[] symbols;
@@ -194,6 +195,7 @@ public class Disk : MonoBehaviour
 
     void Update()
     {
+
         UpdateRoue();
 
         if (etat == Etat.Saisie)
