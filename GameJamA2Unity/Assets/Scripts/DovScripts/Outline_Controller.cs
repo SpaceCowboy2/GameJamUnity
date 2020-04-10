@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Outline_Controller : MonoBehaviour
 {
-    private MeshRenderer renderer;
+    private MeshRenderer rendere;
     public float maxOutLineWidth;
     public Color OutlineColor;
 
     private void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
+        rendere = GetComponent<MeshRenderer>();
     }
 
     public void ShowOutline()
     {
 
-        foreach (var mat in renderer.materials)
+        foreach (var mat in rendere.materials)
         { 
             mat.SetFloat("_Outline", maxOutLineWidth);
             mat.SetColor("_OutlineColor", OutlineColor);
@@ -26,7 +26,7 @@ public class Outline_Controller : MonoBehaviour
 
     public void HideOutline()
     {
-        foreach (var mat in renderer.materials)
+        foreach (var mat in rendere.materials)
         {
             mat.SetFloat("_Outline", 0f);
         }
