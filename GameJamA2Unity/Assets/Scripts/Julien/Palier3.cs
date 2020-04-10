@@ -28,10 +28,6 @@ public class Palier3 : MonoBehaviour
     void Start()
     {
        
-    }
-    // Update is called once per frame
-    void Update()
-    {
         if(!wentOnce)
         {
             StartCoroutine(RandomSound(timeBetweenTwoSounds));
@@ -55,6 +51,10 @@ public class Palier3 : MonoBehaviour
             Camera.main.fieldOfView -= 2;
         }
     }
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
     IEnumerator RandomSound(float timeBetweenTwoSounds)
     {
@@ -66,7 +66,7 @@ public class Palier3 : MonoBehaviour
              {
                  origins = Random.Range(0, 3);
                  volume = Random.Range(10, 51);
-                 son = sound[Random.Range(0, 11)];
+                 son = sound[Random.Range(0, 10)];
                  switch (origins)
                  {
                      case 0:

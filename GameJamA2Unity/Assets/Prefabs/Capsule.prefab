@@ -267,8 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1179689b6e2f5e744a5ab0265ad48966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screen: {fileID: 8891513071980232493}
-  time: 5
 --- !u!23 &4644533903276123401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -460,11 +458,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46adaac1264bdf419616f3bc8c0b10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 0}
+  time: 0
+  palier1: {fileID: 0}
+  palier2: {fileID: 0}
+  palier3: {fileID: 0}
+  palier4: {fileID: 0}
+  palier5: {fileID: 0}
   numberOfShakes: 5
   animShake: {fileID: 5537737309499726614}
   Doors: 0
   calledOnce: 1
   DoorAnimator: {fileID: 0}
+  lights: []
+  _light: {fileID: 0}
+  monteeAscenceurAvecPortes: {fileID: 0}
+  descenteChute: {fileID: 0}
+  arriveeAscenceur: {fileID: 0}
 --- !u!95 &9215672150315039700
 Animator:
   serializedVersion: 3
@@ -497,6 +507,7 @@ GameObject:
   - component: {fileID: 4644533904641419988}
   - component: {fileID: 4644533904641419977}
   - component: {fileID: 5537737309499726614}
+  - component: {fileID: 8186707903810665065}
   - component: {fileID: 1042974831918927430}
   - component: {fileID: 113479820051135027}
   - component: {fileID: 1734418934274379327}
@@ -613,6 +624,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8186707903810665065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644533904641419989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18276e555e7256c4cbde11d1582de254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PPdrunk: {fileID: 11400000, guid: 814cac6c4d27a4645872a12939a1724b, type: 2}
 --- !u!114 &1042974831918927430
 MonoBehaviour:
   m_ObjectHideFlags: 0
