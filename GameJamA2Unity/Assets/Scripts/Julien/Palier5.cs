@@ -72,7 +72,7 @@ public class Palier5 : MonoBehaviour
             {
                 origins = Random.Range(0, 3);
                 volume = Random.Range(10, 51);
-                son = sound[Random.Range(0, 11)];
+                son = sound[Random.Range(0, 10)];
                 switch (origins)
                 {
                     case 0:

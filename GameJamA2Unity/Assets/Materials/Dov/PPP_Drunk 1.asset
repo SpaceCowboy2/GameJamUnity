@@ -26,13 +26,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac30a18ab50a4d94bba808ddc974ae6b, type: 3}
   m_Name: PPP_Drunk
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   amplitude:
     overrideState: 1
-    value: 0.072
+    value: 0.016
   frequency:
     overrideState: 1
     value: 0.3

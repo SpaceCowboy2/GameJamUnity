@@ -8,6 +8,9 @@ public class Disk : MonoBehaviour
     [Header("paramètre de roue")]
     public float speed = 0.0f;
     public float angle = 0.0f;
+    public float angleoffset = 0.0f;
+    public Camera cam;
+    public float dist;
 
     [Header("Saisie des symboles")]
     public string[] symbols;
@@ -58,26 +61,43 @@ public class Disk : MonoBehaviour
 
     void UpdateEtatSaisie()
     {
-        int value = Mathf.FloorToInt(angle / 360 * 13);
+        float angleDecale = angle + angleoffset;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (angleDecale < 0)
         {
-            symb = symbols[value];
-            UISymbols[count].symbol = symb;
-            bool isSymbolValid = CheckSymbolValid(symb, stage, count);
-            UISymbols[count].isValid = isSymbolValid;
-            count++;
-            if (!isSymbolValid)
+            angleDecale += 360;
+        }
+        angleDecale %= 360;
+        int value = Mathf.FloorToInt(angleDecale / 360 * 13);
+
+        RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, dist))
+        {
+            if (hit.collider.CompareTag("Disk"))
             {
-                resultTimer = resultDuration;
-                etat = Etat.Resultat;
-            }
-            if (CheckFinish(count))
-            {
-                resultTimer = resultDuration;
-                etat = Etat.Resultat;
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    symb = symbols[value];
+                    UISymbols[count].symbol = symb;
+                    bool isSymbolValid = CheckSymbolValid(symb, stage, count);
+                    UISymbols[count].isValid = isSymbolValid;
+                    count++;
+                    if (!isSymbolValid)
+                    {
+                        resultTimer = resultDuration;
+                        etat = Etat.Resultat;
+                    }
+                    if (CheckFinish(count))
+                    {
+                        resultTimer = resultDuration;
+                        etat = Etat.Resultat;
+                    }
+                }
             }
         }
+
     }
 
     bool CheckSymbolValid(string symbol, Stages stage, int pos)
@@ -168,7 +188,7 @@ public class Disk : MonoBehaviour
         angle += speed * Time.deltaTime;
         angle %= 360;
         Vector3 newEulerAngles = transform.localEulerAngles;
-        newEulerAngles.y = angle;
+        newEulerAngles.z = -angle;
         transform.localEulerAngles = newEulerAngles;
     }
 
@@ -184,8 +204,7 @@ public class Disk : MonoBehaviour
         {
             UpdateEtatResultat();
         }
-        //Raycast cam pour visé le click sur l'objet
-        
+
     }
 
 

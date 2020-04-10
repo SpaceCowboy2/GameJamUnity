@@ -11,33 +11,21 @@ public class Palier2 : MonoBehaviour
     private AudioClip son;
     public AudioSource soundLeft;
     public AudioSource soundRight;
+    
     private int origins = 0;
     private int volume = 10;
   
     public float timeBetweenTwoSounds = 10.0f;
 
-    //Fonctionne pas
-    public PostProcessProfile PPdrunk;
-    private PPP_Drunk drunk;
 
     void Start()
     {
-        //Fonctionne pas
-        PPdrunk.TryGetSettings(out drunk);
-        drunk.enabled.Override(true);
-        //drunk.amplitude.value = 0.3f;
-
-
         StartCoroutine(RandomSound(timeBetweenTwoSounds));
         Camera.main.fieldOfView -= 2;
     }
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-           
-        }
     }
 
     IEnumerator RandomSound(float timeBetweenTwoSounds)
