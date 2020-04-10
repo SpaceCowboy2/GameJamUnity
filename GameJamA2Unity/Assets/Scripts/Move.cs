@@ -6,11 +6,11 @@ public class Move : MonoBehaviour
 {
     public float movementSpeed;
     public Rigidbody PlayerBody;
-
+    //public Camera camera;
     // Use this for initialization
     void Start()
     {
-
+        //camera.GetComponent<Palier5>().enabled = true;
     }
 
     //Update is called once per frame

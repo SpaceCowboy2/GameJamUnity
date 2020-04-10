@@ -7,47 +7,63 @@ using UnityEngine.Animations;
 public class Gameplay : MonoBehaviour
 {
     public int numberOfShakes = 5;
-    private Animator animShake;
+    public Animator animShake;
     private bool canShake = false;
     public bool Doors;
+    public bool calledOnce = true;
     public Animator DoorAnimator;
+    public bool test = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        animShake = this.GetComponent<Animator>();
-        //animDoors = Doors.GetComponent<Animator>();
+       // animDoors = Doors.GetComponent<Animator>();
         StartCoroutine(WaitForShaking());
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         DoorAnimator.SetBool("CanCloseDoors",Doors);
-        if(canShake)
-        StartCoroutine(Shaking());
 
+        if(!calledOnce)
+        {
+            calledOnce = true;
+            StartCoroutine(Shaking());
+        }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            animShake.SetBool("ShakeAgain",true);
+        }
+
+
+        if(animShake.GetBool("ShakeAgain") == true && animShake.GetBool("FinishedShaking") == true)
+        {
+            StartCoroutine(Shaking());
+        }
     }
 
 
     IEnumerator Shaking()
     {
-        if(numberOfShakes > 0)
-        {
+        
+       for (int i = 0; i < 30; i++)
+       {
+            animShake.SetTrigger("CanShake");
+            Debug.Log(i);
             animShake.Play("ShakeFreeFall");
-            numberOfShakes--;
-            yield return new WaitForSeconds(0.16f);
-        }
-        else
-        {
-           animShake.Play("EndOfShake");
-        }
+            yield return new WaitForSeconds(0.16f);            
+       }
+        animShake.SetBool("ShakeAgain",false); // Mettre à false pour refaire l'animation 
+        animShake.SetBool("FinishedShaking", true);
     }
+
 
     IEnumerator WaitForShaking()
     {
-        yield return new WaitForSeconds(20);
-        canShake = true; 
+        yield return new WaitForSeconds(2.0f);
+        calledOnce = false; 
     }
 }
