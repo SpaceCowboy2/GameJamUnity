@@ -7,7 +7,13 @@ using UnityEngine.Animations;
 public class Gameplay : MonoBehaviour
 {
     public int numberOfShakes = 5;
+<<<<<<< HEAD
+    //public GameObject Doors;
     private Animator animShake;
+
+=======
+    private Animator animShake;
+>>>>>>> 7a5185475bc7923ceba58d17897439a33580720a
     private bool canShake = false;
     public bool Doors;
     public Animator DoorAnimator;
@@ -18,6 +24,8 @@ public class Gameplay : MonoBehaviour
         animShake = this.GetComponent<Animator>();
         //animDoors = Doors.GetComponent<Animator>();
         StartCoroutine(WaitForShaking());
+        StartCoroutine(WaitForOpeningDoors(8));
+        StartCoroutine(WaitForClosingDoors(12));
 
     }
 
@@ -50,4 +58,32 @@ public class Gameplay : MonoBehaviour
         yield return new WaitForSeconds(20);
         canShake = true; 
     }
+<<<<<<< HEAD
+
+    IEnumerator WaitForOpeningDoors(float time)
+    {
+        yield return new WaitForSeconds(time);
+        OpenDoor();
+
+    }
+
+    IEnumerator WaitForClosingDoors(float time)
+    {
+        
+        yield return new WaitForSeconds(time);
+        CloseDoor();
+    }
+
+    void OpenDoor()
+    {
+      
+       
+    }
+
+    void CloseDoor()
+    {
+        
+    }
+=======
+>>>>>>> 7a5185475bc7923ceba58d17897439a33580720a
 }
